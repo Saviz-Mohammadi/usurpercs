@@ -1,0 +1,26 @@
+{
+  "name": "usurpercs",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A free online tutorial site project covering a variety of computer-related topics and technologies.",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saviz-Mohammadi/usurpercs.git"
+  },
+  "keywords": [],
+  "author": "Saviz Mohammadi",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Saviz-Mohammadi/usurpercs/issues"
+  },
+  "homepage": "https://github.com/Saviz-Mohammadi/usurpercs#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}
