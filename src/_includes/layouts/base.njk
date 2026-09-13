@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='en' data-bs-theme='auto'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='description' content='{{ metadata.websiteDescription }}' />
+    <meta name='author' content='{{ metadata.authorName }}' />
+    <title>{{ title }} | {{ metadata.websiteName }}</title>
+    <link
+      rel='icon'
+      type='image/png'
+      href='/favicon-96x96.png?v=20260909'
+      sizes='96x96'
+    />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg?v=20260909' />
+    <link rel='shortcut icon' href='/favicon.ico?v=20260909' />
+    <link
+      rel='apple-touch-icon'
+      sizes='180x180'
+      href='/apple-touch-icon.png?v=20260909'
+    />
+    <meta name='apple-mobile-web-app-title' content='UsurperCS' />
+    <link rel='manifest' href='/site.webmanifest?v=20260909' />
+    <link
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css'
+      rel='stylesheet'
+      integrity='sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB'
+      crossorigin='anonymous'
+    />
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css'
+    />
+    <link href='/css/style.css' rel='stylesheet' />
+    {# NOTE (SAVIZ):
+      Any custom CSS files will need to be specified in the front matter and will be imported into the page via the following snippet.
+    #}
+    {% if stylePaths %}
+      {% for stylePath in stylePaths %}
+        <link href='{{ stylePath }}' rel='stylesheet' />
+      {% endfor %}
+    {% endif %}
+  </head>
+  <body>
+    {# NOTE (SAVIZ):
+      The main purpose of this wrapper-style grid layout is to prevent the footer from riding up on pages with little to no content.
+      This is currently the most effective solution I've found for addressing this issue.
+    #}
+    <div class='body-wrapper'>
+      {# TODO (SAVIZ):
+        Header needs to be inserted here.
+      #}
+      <main>{{ content | safe }}</main>
+      {# TODO (SAVIZ):
+        Footer needs to be inserted here.
+      #}
+    </div>
+    <script
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js'
+      integrity='sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI'
+      crossorigin='anonymous'
+    ></script>
+    {# TODO (SAVIZ):
+      Copyright script needs to be inserted here.
+    #}
+    {# NOTE (SAVIZ):
+      Any custom JS files will need to be specified in the front matter and will be imported into the page via the following snippet.
+    #}
+    {% if scriptPaths %}
+      {% for scriptPath in scriptPaths %}
+        <script src='{{ scriptPath }}'></script>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>
