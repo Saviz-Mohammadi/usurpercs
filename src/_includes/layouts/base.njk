@@ -35,11 +35,11 @@
     {# NOTE (SAVIZ):
       Any custom CSS files will need to be specified in the front matter and will be imported into the page via the following snippet.
     #}
-    {% if stylePaths %}
-      {% for stylePath in stylePaths %}
+    {%- if stylePaths -%}
+      {%- for stylePath in stylePaths -%}
         <link href='{{ stylePath }}' rel='stylesheet' />
-      {% endfor %}
-    {% endif %}
+      {%- endfor -%}
+    {%- endif -%}
   </head>
   <body>
     {# NOTE (SAVIZ):
@@ -50,7 +50,7 @@
       {# TODO (SAVIZ):
         Header needs to be inserted here.
       #}
-      <main>{{ content | safe }}</main>
+      <main>{{- content | safe -}}</main>
       {# TODO (SAVIZ):
         Footer needs to be inserted here.
       #}
@@ -66,10 +66,10 @@
     {# NOTE (SAVIZ):
       Any custom JS files will need to be specified in the front matter and will be imported into the page via the following snippet.
     #}
-    {% if scriptPaths %}
-      {% for scriptPath in scriptPaths %}
+    {%- if scriptPaths -%}
+      {%- for scriptPath in scriptPaths -%}
         <script src='{{ scriptPath }}'></script>
-      {% endfor %}
-    {% endif %}
+      {%- endfor -%}
+    {%- endif -%}
   </body>
 </html>
