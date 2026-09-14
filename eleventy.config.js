@@ -33,5 +33,6 @@ export default async function (eleventyConfig) {
       data: "_data",
       output: "_site",
     },
+    templateFormats: ["njk", "md"]
   };
 }
