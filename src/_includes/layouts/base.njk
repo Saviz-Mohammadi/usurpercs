@@ -47,9 +47,7 @@
       This is currently the most effective solution I've found for addressing this issue.
     #}
     <div class='body-wrapper'>
-      {# TODO (SAVIZ):
-        Header needs to be inserted here.
-      #}
+      {%- include 'partials/_header.njk' -%}
       <main>{{- content | safe -}}</main>
       {# TODO (SAVIZ):
         Footer needs to be inserted here.
@@ -60,6 +58,7 @@
       integrity='sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI'
       crossorigin='anonymous'
     ></script>
+    <script type='module' src='/js/color_modes.js'></script>
     {# TODO (SAVIZ):
       Copyright script needs to be inserted here.
     #}
