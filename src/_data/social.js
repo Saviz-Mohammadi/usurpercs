@@ -3,7 +3,7 @@
 //    platforms.
 // 1- Please note that this list is subject to change at any time in the future.
 export default [
-  { title: 'YouTube', url: '' },
-  { title: 'GitHub', url: '' },
-  { title: 'LinkedIn', url: '' },
+  { href: '#', target: '_blank', rel: 'noopener', title: 'YouTube' },
+  { href: '#', target: '_blank', rel: 'noopener', title: 'GitHub' },
+  { href: '#', target: '_blank', rel: 'noopener', title: 'LinkedIn' },
 ];

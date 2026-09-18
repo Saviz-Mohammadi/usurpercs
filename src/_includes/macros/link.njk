@@ -1,0 +1,7 @@
+{# NOTE (SAVIZ):
+  Please note that I am not using Prettier formatting for this file, as the output is genuinely poor.
+#}
+
+{%- macro generateLink(class="", href="#", target="", rel="", title="") -%}
+<a{% if class %} class="{{ class }}"{% endif %} href="{{ href }}"{% if target %} target="{{ target }}"{% endif %}{% if rel %} rel="{{ rel }}"{% endif %}>{{ title }}</a>
+{%- endmacro -%}
