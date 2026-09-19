@@ -1,0 +1,97 @@
+{% from "macros/link.njk" import generateLink %}
+
+{# NOTE (SAVIZ):
+  Please note that I am enforcing the dark variation for the footer, knowing it
+  looks acceptable on both the light and dark variations of the website.
+#}
+<footer
+  class='container-fluid mt-5 py-4 py-md-5 bg-secondary-subtle'
+  data-bs-theme='dark'
+>
+  <div class='container px-4 px-md-3 py-4 py-md-5 text-body-secondary'>
+    <div class='row'>
+      <div class='col-lg-3 mb-3'>
+        <a
+          class='
+            d-inline-flex
+            align-items-center
+            mb-2
+            text-decoration-none
+            text-body-emphasis
+          '
+          href='/'
+          aria-label='UsurperCS'
+        >
+          <img
+            class='d-block me-2'
+            src='/assets/site/graphics/usurpercs_logo.svg'
+            alt='Logo'
+            height='32'
+            width='40'
+          />
+          <span class='fs-5'>UsurperCS</span>
+        </a>
+        <ul class='list-unstyled small'>
+          <li class='mb-2'>
+            Designed and built with passion using
+            <a href='https://getbootstrap.com/'>Bootstrap 5.3.8</a>
+            frontend toolkit and
+            <a href='https://www.11ty.dev/'>Eleventy 3.1.6</a>
+            static site generator.
+          </li>
+          <li class='mb-2'>
+            <p>
+              Copyright &copy;
+              <span id='year'></span>
+              Saviz Mohammadi. All rights reserved.
+            </p>
+          </li>
+          {# TODO (SAVIZ):
+            I need to update the licensing information in the future.
+          #}
+          <li class='mb-2'>
+            Code licensed
+            <a href='#' target='_blank' rel='license noopener'>License</a>
+            , content
+            <a href='#' target='_blank' rel='license noopener'>License</a>.
+          </li>
+        </ul>
+      </div>
+      <div class='col-lg-2 col-6 offset-lg-1 mb-3'>
+        <h5>Navigation</h5>
+        <ul class='list-unstyled'>
+          {%- for linkObject in navigation -%}
+            <li class='mb-2'>
+              {{ generateLink(href=linkObject.href, title=linkObject.title) }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class='col-lg-2 col-6 offset-lg-1 mb-3'>
+        <h5>Social</h5>
+        <ul class='list-unstyled'>
+          {%- for linkObject in social -%}
+            <li class='mb-2'>
+              {{ generateLink(
+                href=linkObject.href,
+                target=linkObject.target,
+                rel=linkObject.rel,
+                title=linkObject.title
+              ) }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class='col-lg-2 col-6 offset-lg-1 mb-3'>
+        <h5>Legal</h5>
+        <ul class='list-unstyled'>
+          {%- for linkObject in legal -%}
+            <li class='mb-2'>
+              {{ generateLink(href=linkObject.href, title=linkObject.title) }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
