@@ -63,7 +63,7 @@
     #}
     {%- if scriptPaths -%}
       {%- for scriptPath in scriptPaths -%}
-        <script src='{{ scriptPath }}'></script>
+        <script type='module' src='{{ scriptPath }}'></script>
       {%- endfor -%}
     {%- endif -%}
   </body>
