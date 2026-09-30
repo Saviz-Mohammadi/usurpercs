@@ -22,6 +22,8 @@
   "homepage": "https://github.com/Saviz-Mohammadi/usurpercs#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
+    "@date-fns/tz": "^1.5.0",
+    "date-fns": "^4.4.0",
     "prettier": "^3.9.6",
     "prettier-plugin-nunjucks": "^0.2.0"
   }
