@@ -1,7 +1,12 @@
+import { IdAttributePlugin } from '@11ty/eleventy';
 import { format } from 'date-fns';
 import { tz } from '@date-fns/tz';
 
 export default async function (eleventyConfig) {
+  // Plugins
+  // ---------------------------------------------------------------------------
+  eleventyConfig.addPlugin(IdAttributePlugin);
+
   // Miscellaneous
   // ---------------------------------------------------------------------------
   eleventyConfig.setQuietMode(true);
