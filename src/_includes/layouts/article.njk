@@ -1,0 +1,114 @@
+---
+layout: 'layouts/base.njk'
+scriptPaths:
+  - /js/toc.js
+---
+
+<article class='container-fluid mt-5'>
+  <div class='container'>
+    <!-- Place navigation here in the future ---------------------------------->
+
+    <div class='row g-5 justify-content-center align-items-stretch'>
+      <!-- Metadata ----------------------------------------------------------->
+      <section id='metadata-section' class='col-lg-3 col-12 order-lg-1'>
+        <div class='article-sidebar'>
+          <button
+            class='btn btn-primary d-lg-none w-100'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#metadata-collapse'
+            aria-expanded='false'
+            aria-controls='controls-collapse'
+          >
+            Article Metadata
+          </button>
+          <div id='metadata-collapse' class='collapse d-lg-block'>
+            <ul class='list-unstyled pt-3 pt-lg-0'>
+              {%- if author -%}
+                <li>
+                  <b>Author:</b>
+                  <br />
+                  {{ author }}
+                </li>
+              {%- endif -%}
+
+              {%- if page.date -%}
+                <li>
+                  <b>Published:</b>
+                  <br />
+                  <time datetime='{{ page.date }}'>
+                    {{ page.date | utcDateTime }}
+                  </time>
+                </li>
+              {%- endif -%}
+
+              {%- if lastUpdateDate -%}
+                <li>
+                  <b>Last updated:</b>
+                  <br />
+                  <time datetime='{{ lastUpdateDate }}'>
+                    {{ lastUpdateDate | utcDateTime }}
+                  </time>
+                </li>
+              {%- endif -%}
+
+              {%- if description -%}
+                <li>
+                  <b>Description:</b>
+                  <br />
+                  {{ description }}
+                </li>
+              {%- endif -%}
+
+              {%- if tags and tags.length -%}
+                <li>
+                  <b>Tags:</b>
+                  <br />
+                  {%- for tag in tags %}
+                    <span class='badge text-bg-secondary p-1'>
+                      {{ tag }}
+                    </span>
+                  {%- endfor -%}
+                </li>
+              {%- endif -%}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOC ---------------------------------------------------------------->
+      <section id='toc-section' class='col-lg-3 col-12 order-lg-3'>
+        <div class='article-sidebar'>
+          <button
+            class='btn btn-primary d-lg-none w-100'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#toc-collapse'
+            aria-expanded='false'
+            aria-controls='toc-collapse'
+          >
+            Table of Contents
+          </button>
+          <div id='toc-collapse' class='collapse d-lg-block'>
+            <nav aria-label='Table of contents'>
+              <ul
+                id='toc-nav'
+                class='nav nav-pills flex-column pt-3 pt-lg-0'
+              ></ul>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content ------------------------------------------------------------>
+      <section class='col-lg-6 col-12 order-lg-2 border-x-lg'>
+        {# NOTE (SAVIZ):
+          Only headings inside this wrapper appear in the TOC.
+        #}
+        <div id='article-content'>{{ content | safe }}</div>
+      </section>
+    </div>
+
+    <!-- Place navigation here in the future ---------------------------------->
+  </div>
+</article>

@@ -10,6 +10,8 @@
   --sz-3: 200px;
   --sz-4: 250px;
   --sz-5: 300px;
+
+  --top-offset: 6rem;
 }
 
 /* Large margin (lm) -------------------------------------------------------- */
@@ -274,7 +276,7 @@
   padding-left: var(--lspace-5) !important;
 }
 
-/* size (sz) ---------------------------------------------------------------- */
+/* Size (sz) ---------------------------------------------------------------- */
 
 .sz-1 {
   width: var(--sz-1) !important;
@@ -309,4 +311,24 @@
   object-fit: cover;
   object-position: center 20%;
   border-radius: 50%;
+}
+
+/* An offset to make elements stop just below the sticky header instead of under it. */
+#article-content :is(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-top: calc(var(--top-offset, 4rem) + 1rem);
+}
+
+@media (min-width: 992px) {
+  .article-sidebar {
+    position: sticky;
+    top: calc(var(--top-offset, 4rem) + 1rem);
+    max-height: calc(100vh - var(--top-offset, 4rem) - 2rem);
+    overflow-y: auto;
+  }
+  .border-x-lg {
+    border-left: var(--bs-border-width) var(--bs-border-style)
+      var(--bs-border-color);
+    border-right: var(--bs-border-width) var(--bs-border-style)
+      var(--bs-border-color);
+  }
 }
