@@ -1,0 +1,42 @@
+{%- macro generateArticleNavigation(previousItem, nextItem, allUrl) -%}
+  <nav
+    class='row row-cols-1 row-cols-lg-3 g-2 mt-5 pt-3 border-top'
+    aria-label='Article navigation'
+  >
+    {%- if previousItem -%}
+      <div class='col d-grid d-lg-block text-lg-start'>
+        <a
+          class='btn btn-primary rounded-pill'
+          href='{{ previousItem.url }}'
+          rel='prev'
+          title='{{ previousItem.data.title }}'
+        >
+          Go to Previous
+        </a>
+      </div>
+    {%- else -%}
+      <div class='col d-none d-lg-block'></div>
+    {%- endif -%}
+
+    <div class='col d-grid d-lg-block text-lg-center'>
+      <a class='btn btn-secondary rounded-pill' href='{{ allUrl }}'>
+        Go to All
+      </a>
+    </div>
+
+    {%- if nextItem -%}
+      <div class='col d-grid d-lg-block text-lg-end'>
+        <a
+          class='btn btn-primary rounded-pill'
+          href='{{ nextItem.url }}'
+          rel='next'
+          title='{{ nextItem.data.title }}'
+        >
+          Go to Next
+        </a>
+      </div>
+    {%- else -%}
+      <div class='col d-none d-lg-block'></div>
+    {%- endif -%}
+  </nav>
+{%- endmacro -%}
