@@ -1,0 +1,52 @@
+---
+description: 'The following are the tutorial categories that the platform currently offers. More will be added as the platform grows.'
+layout: 'layouts/base.njk'
+title: 'Tutorials'
+---
+
+<section class='container-fluid mt-5'>
+  <div class='container'>
+    <div class='row justify-content-center align-items-center'>
+      <div class='col-lg-8 text-center'>
+        <h1 class='mt-3'>{{ title }}</h1>
+        <p class='lead mt-3 mb-5 text-mute'>{{ description }}</p>
+      </div>
+    </div>
+
+    <!-- Collection ----------------------------------------------------------->
+    {%- set items = collections.tutorialIndex -%}
+    <div class='row g-5 justify-content-center align-items-stretch'>
+      {%- if items and items.length -%}
+        {%- for item in items | sortByOrder -%}
+          <div class='col-12 col-md-6 col-lg-4'>
+            <div class='card h-100'>
+              <div class='card-header'>
+                <time datetime='{{ item.date }}'>
+                  {{ item.date | utcDateTime }}
+                </time>
+              </div>
+              <div class='card-body d-flex flex-column'>
+                <h5 class='card-title'>{{ item.data.title }}</h5>
+                {%- if item.data.description -%}
+                  <p class='card-text'>
+                    {{ item.data.description }}
+                  </p>
+                {%- endif -%}
+                <a
+                  class='btn btn-primary rounded-pill mt-auto align-self-start'
+                  href='{{ item.url }}'
+                >
+                  Browse
+                </a>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <div class='col-12'>
+          <h2 class='text-center'>Nothing yet ¯\_(ツ)_/¯</h2>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
