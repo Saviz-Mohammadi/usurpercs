@@ -1,0 +1,18 @@
+{%- macro generateReferencesAndResources(items) -%}
+  {%- set valid = [] -%}
+  {%- for item in items or [] -%}
+    {%- if item.label and item.url and item.url.startsWith("https://") -%}
+      {%- set valid = (valid.push(item), valid) -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if valid.length -%}
+    <h1 class='mt-5'>References and Resources</h1>
+    <ul class='list-group'>
+      {%- for item in valid %}
+        <li class='list-group-item'>
+          <a href='{{ item.url | e }}' target='_blank' rel='noopener noreferrer'>{{ item.label | e }}</a>
+        </li>
+      {%- endfor %}
+    </ul>
+  {%- endif -%}
+{%- endmacro -%}
