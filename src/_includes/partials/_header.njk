@@ -1,7 +1,10 @@
-{% from "macros/navigation_link.njk" import generateNavigationLink %}
+{% from "macros/link.njk" import generateLink %}
 
 {# NOTE (SAVIZ):
-  Please note that I am enforcing the dark variation for the header, knowing it looks acceptable on both the light and dark variations of the website.
+  0- I am enforcing the dark variation for the header, knowing it looks acceptable on both the light and dark variations of the website.
+  1- I have done my very best to ensure that the theme selection UI system/button looks and behaves good.
+    However, due to personal skill limitations and even issues with Bootstrap itself, I am unable to make it perfect at the moment.
+    I plan on improving this in the future.
 #}
 <header
   class='container-fluid sticky-top bg-secondary-subtle'
@@ -32,16 +35,20 @@
       </button>
       <div id='navbarScroll' class='collapse navbar-collapse'>
         <ul class='navbar-nav navbar-nav-scroll my-2 my-lg-0 ms-auto'>
-          {%- for navigationObject in navigation -%}
+          {%- for item in navigation -%}
             <li class='nav-item'>
-              {{ generateNavigationLink(navigationObject, page.url, "nav-link") }}
+              {{ generateLink(
+                id=item.id,
+                class='nav-link',
+                href=item.href,
+                target=item.target,
+                rel=item.rel,
+                title=item.title,
+                text=item.text,
+                currentUrl=page.url
+              ) }}
             </li>
           {%- endfor -%}
-          {# NOTE (SAVIZ):
-            I have done my very best to ensure that the theme selection UI looks good.
-            However, due to personal skill limitations and even issues with Bootstrap itself, I am unable to make it perfect at the moment.
-            I plan on improving this in the future.
-          #}
           <li class='dropdown nav-item ms-0 ms-lg-5'>
             <button
               id='bd-theme'

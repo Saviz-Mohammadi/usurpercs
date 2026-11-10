@@ -5,8 +5,40 @@
 //    like to stick to custom and simple solutions.
 // link: 'https://www.11ty.dev/docs/plugins/navigation/'
 export default [
-  { href: '/', title: 'Home' },
-  { href: '/tutorials/', title: 'Tutorials' },
-  { href: '/about/', title: 'About' },
-  { href: '/contact/', title: 'Contact' },
+  {
+    id: '',
+    class: '',
+    href: '/',
+    target: '',
+    rel: '',
+    title: '',
+    text: 'Home',
+  },
+  {
+    id: '',
+    class: '',
+    href: '/tutorials/',
+    target: '',
+    rel: '',
+    title: '',
+    text: 'Tutorials',
+  },
+  {
+    id: '',
+    class: '',
+    href: '/about/',
+    target: '',
+    rel: '',
+    title: '',
+    text: 'About',
+  },
+  {
+    id: '',
+    class: '',
+    href: '/contact/',
+    target: '',
+    rel: '',
+    title: '',
+    text: 'Contact',
+  },
 ];

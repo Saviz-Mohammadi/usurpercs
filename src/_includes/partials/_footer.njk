@@ -1,8 +1,10 @@
 {% from "macros/link.njk" import generateLink %}
 
 {# NOTE (SAVIZ):
-  Please note that I am enforcing the dark variation for the footer, knowing it
-  looks acceptable on both the light and dark variations of the website.
+  I am enforcing the dark variation for the footer, knowing it looks acceptable on both the light and dark variations of the website.
+#}
+{# TODO (SAVIZ):
+  I need to update the licensing information in the future.
 #}
 <footer
   class='container-fluid mt-5 py-4 py-md-5 bg-secondary-subtle'
@@ -46,9 +48,6 @@
               Saviz Mohammadi. All rights reserved.
             </p>
           </li>
-          {# TODO (SAVIZ):
-            I need to update the licensing information in the future.
-          #}
           <li class='mb-2'>
             Code licensed
             <a href='#' target='_blank' rel='license noopener'>License</a>
@@ -60,35 +59,96 @@
       <div class='col-lg-2 col-6 offset-lg-1 mb-3'>
         <h5>Navigation</h5>
         <ul class='list-unstyled'>
-          {%- for linkObject in navigation -%}
-            <li class='mb-2'>
-              {{ generateLink(href=linkObject.href, title=linkObject.title) }}
-            </li>
+          {%- for item in navigation -%}
+            {%- if loop.last -%}
+              <li>
+                {{ generateLink(
+                  id=item.id,
+                  class=item.class,
+                  href=item.href,
+                  target=item.target,
+                  rel=item.rel,
+                  title=item.title,
+                  text=item.text
+                ) }}
+              </li>
+            {%- else -%}
+              <li class='mb-2'>
+                {{ generateLink(
+                  id=item.id,
+                  class=item.class,
+                  href=item.href,
+                  target=item.target,
+                  rel=item.rel,
+                  title=item.title,
+                  text=item.text
+                ) }}
+              </li>
+            {%- endif -%}
           {%- endfor -%}
         </ul>
       </div>
       <div class='col-lg-2 col-6 offset-lg-1 mb-3'>
         <h5>Social</h5>
         <ul class='list-unstyled'>
-          {%- for linkObject in social -%}
-            <li class='mb-2'>
-              {{ generateLink(
-                href=linkObject.href,
-                target=linkObject.target,
-                rel=linkObject.rel,
-                title=linkObject.title
-              ) }}
-            </li>
+          {%- for item in social -%}
+            {%- if loop.last -%}
+              <li>
+                {{ generateLink(
+                  id=item.id,
+                  class=item.class,
+                  href=item.href,
+                  target=item.target,
+                  rel=item.rel,
+                  title=item.title,
+                  text=item.text
+                ) }}
+              </li>
+            {%- else -%}
+              <li class='mb-2'>
+                {{ generateLink(
+                  id=item.id,
+                  class=item.class,
+                  href=item.href,
+                  target=item.target,
+                  rel=item.rel,
+                  title=item.title,
+                  text=item.text
+                ) }}
+              </li>
+            {%- endif -%}
           {%- endfor -%}
         </ul>
       </div>
       <div class='col-lg-2 col-6 offset-lg-1 mb-3'>
         <h5>Legal</h5>
         <ul class='list-unstyled'>
-          {%- for linkObject in legal -%}
-            <li class='mb-2'>
-              {{ generateLink(href=linkObject.href, title=linkObject.title) }}
-            </li>
+          {%- for item in legal -%}
+            {%- if loop.last -%}
+              <li>
+                {{ generateLink(
+                  id=item.id,
+                  class=item.class,
+                  href=item.href,
+                  target=item.target,
+                  rel=item.rel,
+                  title=item.title,
+                  text=item.text
+                ) }}
+              </li>
+            {%- else -%}
+              <li class='mb-2'>
+                {{ generateLink(
+                  id=item.id,
+                  class=item.class,
+                  href=item.href,
+                  target=item.target,
+                  rel=item.rel,
+                  title=item.title,
+                  text=item.text
+                ) }}
+              </li>
+            {%- endif -%}
           {%- endfor -%}
         </ul>
       </div>
