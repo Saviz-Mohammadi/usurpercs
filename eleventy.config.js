@@ -26,6 +26,12 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/web-app-manifest-192x192.png');
   eleventyConfig.addPassthroughCopy('src/web-app-manifest-512x512.png');
 
+  // Bootstrap
+  eleventyConfig.addPassthroughCopy({
+    'node_modules/bootstrap/dist': 'assets/vendor/bootstrap',
+    'node_modules/bootstrap-icons/font': 'assets/vendor/bootstrap-icons',
+  });
+
   // Filters
   // ---------------------------------------------------------------------------
   eleventyConfig.addFilter('sortByOrder', function sortByOrder(items) {
