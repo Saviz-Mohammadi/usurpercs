@@ -6,6 +6,27 @@
     <meta name='description' content='{{ metadata.websiteDescription }}' />
     <meta name='author' content='{{ metadata.authorName }}' />
     <title>{{ title }} | {{ metadata.websiteName }}</title>
+    <link rel='preconnect' href='//privacy-proxy.usercentrics.eu' />
+    <link
+      rel='preload'
+      href='//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js'
+      as='script'
+    />
+    <script
+      type='application/javascript'
+      src='https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js'
+    ></script>
+    <script
+      id='usercentrics-cmp'
+      src='https://app.usercentrics.eu/browser-ui/latest/loader.js'
+      data-settings-id='raRSyWzQdnAZc1'
+      async
+    ></script>
+    <script>
+      uc.setCustomTranslations(
+        'https://termageddon.ams3.cdn.digitaloceanspaces.com/translations/',
+      );
+    </script>
     <link
       rel='icon'
       type='image/png'
@@ -29,10 +50,10 @@
       rel='stylesheet'
       href='/assets/vendor/bootstrap-icons/bootstrap-icons.min.css'
     />
-    <link href='/css/style.css' rel='stylesheet' />
+    <link rel='stylesheet' href='/css/style.css' />
     {%- if stylePaths -%}
       {%- for stylePath in stylePaths -%}
-        <link href='{{ stylePath }}' rel='stylesheet' />
+        <link rel='stylesheet' href='{{ stylePath }}' />
       {%- endfor -%}
     {%- endif -%}
   </head>
