@@ -39,12 +39,12 @@ export default [
     text: 'Cookie Policy',
   },
   {
-    id: '',
+    id: 'usercentrics-psl',
     class: '',
-    href: '#',
+    href: 'javascript:UC_UI.showSecondLayer();',
     target: '',
     rel: '',
     title: '',
-    text: 'Privacy Settings',
+    text: 'Privacy Setting',
   },
 ];
